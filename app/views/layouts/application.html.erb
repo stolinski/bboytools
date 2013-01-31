@@ -7,9 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-<%= yield %>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="#">Bboy Tools</a>
+				<ul class="nav">
+					<li><%= link_to "Move Types", types_path %></li>
+					<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
 
+		<%= yield %>
+	</div>
 </body>
 </html>
