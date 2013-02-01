@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130023738) do
+ActiveRecord::Schema.define(:version => 20130201021628) do
+
+  create_table "moves", :force => true do |t|
+    t.string   "name"
+    t.string   "video"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "moves", ["user_id"], :name => "index_moves_on_user_id"
 
   create_table "types", :force => true do |t|
     t.string   "name"

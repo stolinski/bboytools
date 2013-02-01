@@ -12,8 +12,16 @@
 			<div class="container">
 				<a class="brand" href="#">Bboy Tools</a>
 				<ul class="nav">
+					<li><%= link_to "Moves", moves_path %></li>
 					<li><%= link_to "Move Types", types_path %></li>
-					<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+				</ul>
+				<ul class="nav pull-right">
+					<% if user_signed_in? %>
+						<li><%= link_to "Welcome " + current_user.bboy_name , edit_user_registration_path  %></li>
+						<li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+					<% else %>
+						<li><%= link_to "Sign In", new_user_session_path %></li>
+					<% end %>
 				</ul>
 			</div>
 		</div>

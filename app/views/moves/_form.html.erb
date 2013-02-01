@@ -1,0 +1,19 @@
+<%= simple_form_for(@move) do |f| %>
+  <% if @move.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@move.errors.count, "error") %> prohibited this move from being saved:</h2>
+
+      <ul>
+      <% @move.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :name %>
+  <%= f.input :video %>
+  <%= f.input :user_id %>
+  <div class="form-actions">
+  <%= f.button :submit, :class => 'btn btn-primary' %>
+  </div>
+<% end %>

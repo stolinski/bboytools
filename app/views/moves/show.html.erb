@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @move.name %>
+</p>
+
+<p>
+  <b>Video:</b>
+  <%= @move.video %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @move.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_move_path(@move) %> |
+<%= link_to 'Back', moves_path %>

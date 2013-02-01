@@ -1,4 +1,7 @@
 Sets::Application.routes.draw do
+  resources :moves
+
+
   resources :types
 
 
@@ -6,7 +9,7 @@ Sets::Application.routes.draw do
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  root :to => "types#index"
+  root :to => "moves#index"
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
