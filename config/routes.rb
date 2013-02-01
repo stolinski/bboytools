@@ -6,7 +6,11 @@ Sets::Application.routes.draw do
 
 
   devise_for :users
-
+  devise_scope :user do
+    get "register", to: "devise/registrations#new", as: :register
+    get "signin", to: "devise/sessions#new", as: :signin
+    get "signout", to: "devise/sessions#destroy", as: :signout
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
   root :to => "moves#index"
