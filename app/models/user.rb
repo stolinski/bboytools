@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :bboy_name, presence: true
+  validates :bboy_name, presence: true, uniqueness: true
   validates :email, presence: true,  uniqueness: true
 
   has_many :moves

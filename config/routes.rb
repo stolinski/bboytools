@@ -1,4 +1,6 @@
 Sets::Application.routes.draw do
+  get "profiles/show"
+
   resources :moves
 
 

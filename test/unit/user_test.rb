@@ -27,10 +27,8 @@ class UserTest < ActiveSupport::TestCase
 
 	test 'a user should have a unique email' do
 		user = User.new
-
 		user.email = users(:scott).email
 		assert !user.save
 		assert !user.errors[:email].empty?
 	end
-
 end
