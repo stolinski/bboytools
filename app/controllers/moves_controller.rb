@@ -2,11 +2,12 @@ class MovesController < ApplicationController
   # GET /moves
   # GET /moves.json
   def index
-    @moves = Move.all
-
+    @power = Move.order("created_at DESC").find(:all, conditions: {user_id: current_user.id, type_id: [1, 2]})
+    @footwork = Move.order("created_at DESC").find(:all, conditions: {user_id: current_user.id, type_id: 3})
+    @freezes = Move.order("created_at DESC").find(:all, conditions: {user_id: current_user.id, type_id: [4,5]})
+    @tops = Move.order("created_at DESC").find(:all, conditions: {user_id: current_user.id, type_id: 6})
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @moves }
     end
   end
 
@@ -41,7 +42,7 @@ class MovesController < ApplicationController
   # POST /moves.json
   def create
     @move = Move.new(params[:move])
-
+    @move.user_id = current_user.id
     respond_to do |format|
       if @move.save
         format.html { redirect_to @move, notice: 'Move was successfully created.' }

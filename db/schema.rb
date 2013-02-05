@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202182513) do
+ActiveRecord::Schema.define(:version => 20130202201335) do
 
   create_table "moves", :force => true do |t|
     t.string   "name"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20130202182513) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "type_id"
   end
 
+  add_index "moves", ["type_id"], :name => "index_moves_on_type_id"
   add_index "moves", ["user_id"], :name => "index_moves_on_user_id"
 
   create_table "types", :force => true do |t|

@@ -11,8 +11,8 @@
     </div>
   <% end %>
   <%= f.input :name %>
+  <%= f.input :type_id, :collection => Type.all, :selected => @move.type_id  %>
   <%= f.input :video %>
-  <%= f.input :user_id %>
   <div class="form-actions">
   <%= f.button :submit, :class => 'btn btn-primary' %>
   </div>

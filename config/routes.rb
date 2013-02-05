@@ -13,6 +13,9 @@ Sets::Application.routes.draw do
     get "signin", to: "devise/sessions#new", as: :signin
     get "signout", to: "devise/sessions#destroy", as: :signout
   end
+
+  get '/time', to: 'profiles#time', as: :time
+  get '/:id', to: 'profiles#show', as: :userpage
   # The priority is based upon order of creation:
   # first created -> highest priority.
   root :to => "moves#index"
