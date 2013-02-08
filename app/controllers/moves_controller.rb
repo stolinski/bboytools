@@ -2,10 +2,11 @@ class MovesController < ApplicationController
   # GET /moves
   # GET /moves.json
   def index
-    @power = Move.order("created_at DESC").find(:all, conditions: {user_id: current_user.id, type_id: [1, 2]})
-    @footwork = Move.order("created_at DESC").find(:all, conditions: {user_id: current_user.id, type_id: 3})
-    @freezes = Move.order("created_at DESC").find(:all, conditions: {user_id: current_user.id, type_id: [4,5]})
-    @tops = Move.order("created_at DESC").find(:all, conditions: {user_id: current_user.id, type_id: 6})
+    @power = current_user.moves.power
+    @footwork = current_user.moves.footwork
+    @freezes = current_user.moves.freezes
+    @tops = current_user.moves.toprock
+
     respond_to do |format|
       format.html # index.html.erb
     end
@@ -14,7 +15,7 @@ class MovesController < ApplicationController
   # GET /moves/1
   # GET /moves/1.json
   def show
-    @move = Move.find(params[:id])
+    @move = get_move(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,7 +36,7 @@ class MovesController < ApplicationController
 
   # GET /moves/1/edit
   def edit
-    @move = Move.find(params[:id])
+    @move = get_move(params[:id])
   end
 
   # POST /moves
@@ -57,7 +58,7 @@ class MovesController < ApplicationController
   # PUT /moves/1
   # PUT /moves/1.json
   def update
-    @move = Move.find(params[:id])
+    @move = get_move(params[:id])
 
     respond_to do |format|
       if @move.update_attributes(params[:move])
@@ -73,7 +74,7 @@ class MovesController < ApplicationController
   # DELETE /moves/1
   # DELETE /moves/1.json
   def destroy
-    @move = Move.find(params[:id])
+    @move = get_move(params[:id])
     @move.destroy
 
     respond_to do |format|
@@ -81,4 +82,12 @@ class MovesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  private
+  def get_move(move_id)
+    Move.find(move_id)
+  end
 end
+
+

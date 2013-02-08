@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+$(document).ready(function() {
+
+	$('#thirty').stopwatch({format: '{mm.}{ss.}'}).bind('tick.stopwatch', function(e, elapsed) {
+    		if (elapsed % 30000 == 0) {
+        			$("#breen").trigger('play');
+   		}
+   	}).stopwatch('start');
+});

@@ -1,4 +1,5 @@
 <h1>Your Move Book</h1>
+<div class="span6">
 <h4>Top Rock</h4>
 <ul class="moves">
 <% @tops.each do |move| %>
@@ -23,5 +24,5 @@
   <li class="move <%= move.type.name.downcase.tr(" ", "-") %>"><span><%= move.type.name %></span><%= move.name %><%= link_to 'Edit', edit_move_path(move) %><%= link_to 'Destroy', move, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 <% end %>
 </ul>
-
+</div>
 <%= link_to 'New Move', new_move_path %>

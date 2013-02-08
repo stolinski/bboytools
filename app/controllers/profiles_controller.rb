@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   	@user = User.find_by_bboy_name(params[:id])
 
   	if @user
-  		@moves = Move.limit(5).order("created_at DESC").find(:all, conditions: {user_id: @user.id})
+  		@moves = current_user.moves.limit(5)
   		render action: :show
   	else
   		render file: 'public/404', status: 404, formats: [:html]
