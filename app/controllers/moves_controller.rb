@@ -1,4 +1,5 @@
 class MovesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /moves
   # GET /moves.json
   def index

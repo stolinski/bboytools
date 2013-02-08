@@ -20,5 +20,12 @@ $(document).ready(function() {
     		if (elapsed % 30000 == 0) {
         			$("#breen").trigger('play');
    		}
-   	}).stopwatch('start');
+   	})
+   	$('#start').stopwatch().click(function(){
+		$('#thirty').stopwatch('toggle')
+	});
+   	$('#reset').stopwatch().click(function(){
+		$('#thirty').stopwatch('reset').html('00m00s');
+
+	});
 });
