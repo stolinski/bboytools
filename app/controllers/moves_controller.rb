@@ -64,9 +64,11 @@ class MovesController < ApplicationController
     respond_to do |format|
       if @move.update_attributes(params[:move])
         format.html { redirect_to @move, notice: 'Move was successfully updated.' }
+        format.js
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
+        format.js
         format.json { render json: @move.errors, status: :unprocessable_entity }
       end
     end

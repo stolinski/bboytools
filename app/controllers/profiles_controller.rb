@@ -15,4 +15,15 @@ class ProfilesController < ApplicationController
   def time
   	render action: :time
   end
+
+  def bmode
+    @power = current_user.moves.power
+    @footwork = current_user.moves.footwork
+    @freezes = current_user.moves.freezes
+    @tops = current_user.moves.toprock
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
 end
+

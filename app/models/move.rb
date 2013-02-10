@@ -1,5 +1,5 @@
 class Move < ActiveRecord::Base
-  attr_accessible :name, :user_id, :video, :type_id
+  attr_accessible :name, :user_id, :video, :type_id, :bmode
 
 
   belongs_to :user

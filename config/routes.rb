@@ -15,6 +15,7 @@ Sets::Application.routes.draw do
   end
 
   get '/time', to: 'profiles#time', as: :time
+  get '/battle-mode', to: 'profiles#bmode', as: :bmode
   get '/:id', to: 'profiles#show', as: :userpage
   # The priority is based upon order of creation:
   # first created -> highest priority.
