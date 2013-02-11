@@ -1,28 +1,56 @@
 <h1>Your Move Book</h1>
 <div class="span6">
-<h4>Top Rock</h4>
-<ul class="moves">
-<% @tops.each do |move| %>
-  <li class="move <%= move.type.name.downcase.tr(" ", "-") %>"><span><%= move.type.name %></span><%= move.name %><%= link_to 'Edit', edit_move_path(move) %><%= link_to 'Destroy', move, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-<% end %>
-</ul>
-<h4>Footwork</h4>
-<ul class="moves">
-<% @footwork.each do |move| %>
-  <li class="move <%= move.type.name.downcase.tr(" ", "-") %>"><span><%= move.type.name %></span><%= move.name %><%= link_to 'Edit', edit_move_path(move) %><%= link_to 'Destroy', move, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-<% end %>
-</ul>
-<h4>Power Moves</h4>
-<ul class="moves">
-<% @power.each do |move| %>
-  <li class="move <%= move.type.name.downcase.tr(" ", "-") %>"><span><%= move.type.name %></span><%= move.name %><%= link_to 'Edit', edit_move_path(move) %><%= link_to 'Destroy', move, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-<% end %>
-</ul>
-<h4>Freezes</h4>
-<ul class="moves">
-<% @freezes.each do |move| %>
-  <li class="move <%= move.type.name.downcase.tr(" ", "-") %>"><span><%= move.type.name %></span><%= move.name %><%= link_to 'Edit', edit_move_path(move) %><%= link_to 'Destroy', move, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-<% end %>
-</ul>
+	<h4>Top Rock</h4>
+	<%= link_to 'Add Move', new_move_path, class: "button" %>
+	<ul class="moves">
+		<% @tops.each do |move| %>
+		<li class="move <%= move.type.name.downcase.tr(" ", "-") %>">
+			<span><%= move.type.name %></span>
+			<%= move.name %>
+			<div class="icons">
+				<%= link_to(edit_move_path(move)) do %><i class="icon-pencil"></i><% end %>
+				<%= link_to(move, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
+			</div>
+		</li>
+		<% end %>
+	</ul>
+	<h4>Footwork</h4>
+	<ul class="moves">
+		<% @footwork.each do |move| %>
+		<li class="move <%= move.type.name.downcase.tr(" ", "-") %>">
+			<span><%= move.type.name %></span>
+			<%= move.name %>
+			<div class="icons">
+				<%= link_to(edit_move_path(move)) do %><i class="icon-pencil"></i><% end %>
+				<%= link_to(move, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
+			</div>
+		</li>
+		<% end %>
+	</ul>
+	<h4>Power Moves</h4>
+	<ul class="moves">
+		<% @power.each do |move| %>
+		<li class="move <%= move.type.name.downcase.tr(" ", "-") %>">
+			<span><%= move.type.name %></span>
+			<%= move.name %>
+			<div class="icons">
+				<%= link_to(edit_move_path(move)) do %><i class="icon-pencil"></i><% end %>
+				<%= link_to(move, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
+			</div>
+		</li>
+		<% end %>
+	</ul>
+	<h4>Freezes</h4>
+	<ul class="moves">
+		<% @freezes.each do |move| %>
+		<li class="move <%= move.type.name.downcase.tr(" ", "-") %>">
+			<span><%= move.type.name %></span>
+			<%= move.name %>
+			<div class="icons">
+				<%= link_to(edit_move_path(move)) do %><i class="icon-pencil"></i><% end %>
+				<%= link_to(move, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
+			</div>
+		</li>
+		<% end %>
+	</ul>
 </div>
-<%= link_to 'New Move', new_move_path %>

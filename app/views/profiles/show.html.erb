@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="span6">
 		<h4>Your Recently Added Moves</h4>
-		<%= link_to 'New Move', new_move_path %>
+		<%= link_to 'New Move', new_move_path, class: 'button'  %>
 		<% if @moves %>
 		<ul class="moves">
 			<% @moves.each do |move| %>

@@ -14,7 +14,7 @@
 			</ul>
 			<ul class="nav pull-right">
 				<% if user_signed_in? %>
-				<li><%= link_to "Welcome " + current_user.bboy_name, "/" + current_user.bboy_name %></li>
+				<li><%= link_to current_user.bboy_name + " - " + current_user.crew_name, "/" + current_user.bboy_name %></li>
 				<li><%= link_to "Sign out", signout_path %></li>
 				<% else %>
 				<li><%= link_to "Create Account", register_path %></li>

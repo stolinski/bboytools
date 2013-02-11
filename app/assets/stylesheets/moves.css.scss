@@ -1,16 +1,11 @@
 // Place all the styles related to the Moves controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$green: #519548;
-$red:#920217;
-$blue: #4058DA;
-$purp:#5E2F46;
-
+@import 'base';
 .moves {
 	margin:0;
 	.move {
 		list-style: none;
-		//border:solid 1px #333;
 		border-radius: 5px;
 		padding:10px;
 		margin:0 0 10px 0;
@@ -30,6 +25,21 @@ $purp:#5E2F46;
 		&.top-rock { background: $green + 40; }
 		&.freeze { background: $blue; }
 		&.freeze-combo { background: $blue - 40; }
-
+		a {
+			color:white;
+			opacity: 0.7;
+			&:hover {
+				opacity: 0.9;
+				text-decoration: none;
+			}
+		}
+		.icons {
+			display: none;
+			float: right;
+			position: relative;
+		}
+		&:hover .icons {
+			display: block;
+		}
 	}
 }
