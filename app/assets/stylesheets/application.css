@@ -12,8 +12,6 @@
  *= require_tree .
  *= require twitter/bootstrap
  *= require twitter/bootstrap/_responsive
+ *= require font-awesome
  */
 
-body {
-	padding-top:40px;
-}

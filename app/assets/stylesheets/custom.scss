@@ -1,0 +1,19 @@
+body {
+	padding-top:40px;
+}
+
+.button {
+	background: #333;
+	color: white;
+	padding: 6px 14px;
+	border-radius: 5px;
+	margin: 10px 0;
+	display: inline-block;
+	border: 3px solid #333;
+	&:hover {
+		border-color: #555;
+		color:white;
+		background: #666;
+		text-decoration: none;
+	}
+}
