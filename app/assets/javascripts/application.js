@@ -26,6 +26,15 @@ $(document).ready(function() {
 	});
    	$('#reset').stopwatch().click(function(){
 		$('#thirty').stopwatch('reset').html('00m00s');
-
 	});
+
+   	$("#slide-nav").click(function(){
+   		if ($("html").hasClass("js-nav")) {
+   			$("html").removeClass("js-nav");
+   		} else {
+   			$("html").addClass("js-nav");
+   		}
+   	});
+
 });
+

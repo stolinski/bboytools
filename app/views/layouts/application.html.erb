@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html class="js-ready">
 <head>
-  <title>Sets</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <script src="https://raw.github.com/nene/jintervals/master/jintervals.js"></script>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Sets</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<script src="https://raw.github.com/nene/jintervals/master/jintervals.js"></script>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render '/layouts/nav' %>
-	<div class="container">
-		<% flash.each do |type, message| %>
-			<div class="alert <%= flash_class type %>">
-				<button class="close" data-dismiss="alert">x</button>
-				<%= message %>
+	<div id="outer-wrap">
+		<div id="inner-wrap">
+			<%= render '/layouts/nav' %>
+			<div class="container">
+				<% flash.each do |type, message| %>
+				<div class="alert <%= flash_class type %>">
+					<button class="close" data-dismiss="alert">x</button>
+					<%= message %>
+				</div>
+				<% end %>
+				<%= yield %>
 			</div>
-		<% end %>
-		<%= yield %>
+		</div>
 	</div>
 </body>
 </html>

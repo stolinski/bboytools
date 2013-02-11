@@ -1,7 +1,10 @@
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
+			<i id="slide-nav" class="icon-reorder"></i>
 			<a class="brand" href="/">Bboy Tools</a>
+			<nav id="nav" role="navigation">
+        			<div class="block">
 			<ul class="nav">
 				<li><%= link_to "My Moves", moves_path %></li>
 				<li class="dropdown">
@@ -12,6 +15,8 @@
 					</ul>
 				</li>
 			</ul>
+		</div>
+	</nav>
 			<ul class="nav pull-right">
 				<% if user_signed_in? %>
 				<li><%= link_to current_user.bboy_name + " - " + current_user.crew_name, "/" + current_user.bboy_name %></li>
