@@ -3,7 +3,7 @@
 	<h4>Top Rock</h4>
 	<div class="moves">
 		<% @tops.each do |move| %>
-		<div id="move_<%= move.id %>" class="bmodewrap">
+		<div id="move_<%= move.id %>" class="bmodewrap <%= move.bmode %>">
 			<div class="move <%= move.type.name.downcase.tr(" ", "-") %>"><%= move.name %></div>
 			<div class="bmode">
 				<div class="use-move">Use Move?</div>
@@ -15,7 +15,7 @@
 	<h4>Footwork</h4>
 	<div class="moves">
 		<% @footwork.each do |move| %>
-		<div id="move_<%= move.id %>"  class="bmodewrap">
+		<div id="move_<%= move.id %>"  class="bmodewrap <%= move.bmode %>">
 			<div id="move_<%= move.id %>" class="move <%= move.type.name.downcase.tr(" ", "-") %>"><%= move.name %></div>
 			<div class="bmode">
 				<div class="use-move">Use Move?</div>
@@ -27,7 +27,7 @@
 	<h4>Power Moves</h4>
 	<div class="moves">
 		<% @power.each do |move| %>
-		<div id="move_<%= move.id %>"  class="bmodewrap">
+		<div id="move_<%= move.id %>"  class="bmodewrap <%= move.bmode %>">
 			<div id="move_<%= move.id %>" class="move <%= move.type.name.downcase.tr(" ", "-") %>"><%= move.name %></div>
 			<div class="bmode">
 				<div class="use-move">Use Move?</div>
@@ -39,7 +39,7 @@
 	<h4>Freezes</h4>
 	<div class="moves">
 		<% @freezes.each do |move| %>
-		<div id="move_<%= move.id %>"  class="bmodewrap">
+		<div id="move_<%= move.id %>"  class="bmodewrap <%= move.bmode %>">
 			<div id="move_<%= move.id %>" class="move <%= move.type.name.downcase.tr(" ", "-") %>"><%= move.name %></div>
 			<div class="bmode">
 				<div class="use-move">Use Move?</div>
@@ -49,4 +49,6 @@
 		<% end %>
 	</div>
 </div>
-<%= link_to 'New Move', new_move_path %>
+<div class="span6 reset">
+	<a href="#" id="end-battle">End Current Battle</a>
+</div>

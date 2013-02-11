@@ -1,1 +1,3 @@
-$('#move_<%= @move.id %>').fadeOut();
+if ($('#move_<%= @move.id %>').find("#move_bmode").prop("checked") == true) {
+	$('#move_<%= @move.id %>').fadeOut();
+}

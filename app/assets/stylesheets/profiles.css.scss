@@ -36,10 +36,35 @@
 }
 .bmodewrap {
 	.move {
+		line-height: 40px;
+		font-size:2.0em;
+		cursor: pointer;
 		position: relative;
 		z-index: 1000;
 	}
 	.edit_move {
 		display: none;
+	}
+}
+.true {
+	display: none;
+}
+
+.reset {
+	text-align: center;
+	margin: 40px 0;
+}
+#end-battle {
+	box-shadow: 2px 2px 4px rgba(black, 0.5);
+	background: #333;
+	display: block;
+	padding: 30px;
+	color: white;
+	text-transform: uppercase;
+	font-size: 2.0em;
+	font-weight: bold;
+	&:hover {
+		background: #666;
+		text-decoration: none;
 	}
 }
