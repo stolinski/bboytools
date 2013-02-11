@@ -1,25 +1,24 @@
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<a class="brand" href="#">Bboy Tools</a>
+			<a class="brand" href="/">Bboy Tools</a>
 			<ul class="nav">
-				<li><%= link_to "Moves", moves_path %></li>
-      <li class="dropdown" data-dropdown="dropdown">
-     <a href="/time" class="dropdown-toggle">30/30s Timer</a>
-      <ul class="dropdown-menu">
-      <li><a href="#">second link </a></li>
-      <li><a href="#">third link </a></li>
-      </ul>
-      </li>
-      <li><%= link_to "Battle Mode", bmode_path %></li>
+				<li><%= link_to "My Moves", moves_path %></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><%= link_to "30/30s Timer", time_path %></li>
+						<li><%= link_to "Battle Mode", bmode_path %></li>
+					</ul>
+				</li>
 			</ul>
 			<ul class="nav pull-right">
 				<% if user_signed_in? %>
-					<li><%= link_to "Welcome " + current_user.bboy_name, "/" + current_user.bboy_name %></li>
-					<li><%= link_to "Sign out", signout_path %></li>
+				<li><%= link_to "Welcome " + current_user.bboy_name, "/" + current_user.bboy_name %></li>
+				<li><%= link_to "Sign out", signout_path %></li>
 				<% else %>
-					<li><%= link_to "Create Account", register_path %></li>
-					<li><%= link_to "Sign In", signin_path %></li>
+				<li><%= link_to "Create Account", register_path %></li>
+				<li><%= link_to "Sign In", signin_path %></li>
 				<% end %>
 			</ul>
 		</div>
