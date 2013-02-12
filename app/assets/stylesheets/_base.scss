@@ -1,6 +1,16 @@
-
+@import "compass";
 
 $green: #519548;
 $red:#920217;
 $blue: #4058DA;
 $purp:#5E2F46;
+
+
+/* A less configurable but more areodynamic transition mixin */
+@mixin transition($sec: 0.2s) {
+  -webkit-transition: all $sec ease-out;
+     -moz-transition: all $sec ease-out;
+      -ms-transition: all $sec ease-out;
+       -o-transition: all $sec ease-out;
+          transition: all $sec ease-out;
+}
