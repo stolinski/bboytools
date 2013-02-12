@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-	before_filter :authenticate_user!, except: :time
+	before_filter :authenticate_user!, except: [:time, :users]
   def show
 
   	@user = User.find_by_bboy_name(params[:id])
@@ -25,5 +25,12 @@ class ProfilesController < ApplicationController
       format.html # index.html.erb
     end
   end
-end
 
+
+  def users
+    @users = User.all
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+end
