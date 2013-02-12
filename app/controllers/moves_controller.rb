@@ -49,7 +49,7 @@ class MovesController < ApplicationController
     @move.user_id = current_user.id
     respond_to do |format|
       if @move.save
-        format.html { redirect_to @move, notice: 'Move was successfully created.' }
+        format.html { redirect_to moves_path, notice: 'Move was successfully created.' }
         format.json { render json: @move, status: :created, location: @move }
       else
         format.html { render action: "new" }
@@ -65,7 +65,7 @@ class MovesController < ApplicationController
 
     respond_to do |format|
       if @move.update_attributes(params[:move])
-        format.html { redirect_to @move, notice: 'Move was successfully updated.' }
+        format.html { redirect_to moves_path, notice: 'Move was successfully updated.' }
         format.js
         format.json { head :no_content }
       else
