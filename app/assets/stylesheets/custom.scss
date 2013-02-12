@@ -1,4 +1,16 @@
+@charset "UTF-8";
+@-ms-viewport {
+	width: device-width;
+}
+
+@viewport {
+	width: device-width;
+}
 body {
+}
+.mobile-user-menu {
+	display: none;
+	margin-top: 40px;
 }
 .navbar-fixed-top .navbar-inner {
 	background:url(/assets/shattered.png) #111;
@@ -35,7 +47,9 @@ body {
 		text-decoration: none;
 	}
 }
-
+#slide-nav {
+	display: none;
+}
 
 #outer-wrap {
 	position: relative;
@@ -47,27 +61,87 @@ body {
 	position: relative;
 	width: 100%;
 }
-@media screen and (min-width: 45.0625em) {
-	#top .nav-btn {
-		border: 0;
-		clip: rect(0 0 0 0);
-		height: 1px;
-		margin: -1px;
-		overflow: hidden;
-		padding: 0;
-		position: absolute;
-		width: 1px;
+
+
+@media screen and (max-width: 45em) {
+.mobile-user-menu {
+	display: block;
+}
+	.block {
+		position: relative;
+		margin: 0 auto;
+		padding: 1.5em 1.25em;
+		max-width: 60em;
 	}
 
-	#nav .close-btn {
-		border: 0;
-		clip: rect(0 0 0 0);
-		height: 1px;
-		margin: -1px;
-		overflow: hidden;
+	.close-btn {
+		display: block;
+		width: 2.625em;
+		height: 2.25em;
 		padding: 0;
-		position: absolute;
-		width: 1px;
+		border: 0;
+		outline: none;
+		background: #333333 url("../img/close-btn.svg") left center no-repeat;
+		background-size: 1.875em 1.875em;
+		overflow: hidden;
+		white-space: nowrap;
+		text-indent: 100%;
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+		opacity: 1;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+	.no-svg .close-btn {
+		background-image: url("../img/close-btn.png");
+	}
+	.close-btn:focus, .close-btn:hover {
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+		opacity: 1;
+	}
+
+	.nav-btn {
+		display: block;
+		width: 2.625em;
+		height: 2.25em;
+		padding: 0;
+		border: 0;
+		outline: none;
+		background: #333333 url("../img/nav-icon.svg") left center no-repeat;
+		background-size: 1.875em 1.5em;
+		overflow: hidden;
+		white-space: nowrap;
+		text-indent: 100%;
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+		opacity: 0.7;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+	.no-svg .nav-btn {
+		background-image: url("../img/nav-icon.png");
+	}
+	.nav-btn:hover, .nav-btn:focus {
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+		opacity: 1;
+	}
+
+	#outer-wrap {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+	}
+
+	#inner-wrap {
+		position: relative;
+		width: 100%;
+	}
+
+	#nav {
+		z-index: 200;
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		color: #fff;
+	}
+	#nav .close-btn {
+		display: none;
 	}
 	#nav .block-title {
 		border: 0;
@@ -79,32 +153,78 @@ body {
 		position: absolute;
 		width: 1px;
 	}
+	#nav .block {
+		z-index: 2;
+		position: relative;
+		padding: 0.75em 1.25em;
+		background: #333333;
+	}
 	#nav ul {
+		*zoom: 1;
+		display: block;
+	}
+	#nav ul:before, #nav ul:after {
+		content: "";
+		display: table;
+	}
+	#nav ul:after {
+		clear: both;
+	}
+	#nav li {
+		display: block;
+	}
+	#nav li a {
+		display: block;
+		color: #ccc;
+		font-size: 1.2em;
+		line-height: 1.28571em;
+		font-weight: bold;
+		outline: none;
+	}
+	#nav li a:focus, #nav li a:hover {
+		color: #fff;
+		background: rgba(255, 255, 255, 0.1);
+	}
+	#nav li.is-active a {
+		color: #fff;
+	}
+
+	#top {
+		z-index: 100;
+		position: relative;
+		color: #fff;
+		background: #333333;
+	}
+	#top .block-title {
+		margin: 0;
+		font-size: 1.875em;
+		line-height: 1.2em;
 		text-align: center;
 		white-space: nowrap;
 	}
-	#nav li {
-		display: inline-block;
-		border-right: 1px solid rgba(255, 255, 255, 0.1);
+	#top .nav-btn {
+		position: absolute;
+		top: 1.5em;
+		left: 1.875em;
 	}
-	#nav li:last-child {
-		border-right: none;
-	}
-	#nav li a {
-		padding: 0.42857em 0.85714em;
-	}
-}
-@media screen and (max-width: 45em) {
+
+
+
 	body {
 		padding:0;
+	}
+	.navbar .user-menu {
+		display: none;
 	}
 	.navbar-fixed-top {
 		margin:0;
 	}
 	.navbar .brand {
-		margin-left: 36px;
+		margin-left: 50px;
 	}
 	#slide-nav {
+		cursor: pointer;
+		display: block;
 		position: absolute;
 		left: 10px;
 		top: 19px;
@@ -118,6 +238,16 @@ body {
 		position: absolute;
 		top: 0;
 		padding-top: 5.25em;
+	}
+	.dropdown-menu {
+		position: relative;
+background: transparent;
+padding: 0;
+border: 0;
+border-radius: 0;
+	}
+	.navbar .nav > li > .dropdown-menu::after {
+		border: 0;
 	}
 	#nav:not(:target) {
 		z-index: 1;
@@ -160,7 +290,7 @@ body {
 		border-right: 0.625em white solid;
 	}
 	#nav li a {
-		padding: 0.85714em 2.14286em;
+		padding: 0.85714em 1.14286em;
 	}
 
 	.js-ready #nav {

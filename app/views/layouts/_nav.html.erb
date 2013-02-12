@@ -14,10 +14,21 @@
 						<li><%= link_to "Battle Mode", bmode_path %></li>
 					</ul>
 				</li>
+				<li class="mobile-user-menu">
+			<ul class="user-menu nav pull-right">
+				<% if user_signed_in? %>
+				<li><%= link_to ("/" + current_user.bboy_name) do %><i class="icon-user"></i><%= current_user.bboy_name + " - " + current_user.crew_name %><% end %></li>
+				<li><%= link_to(signout_path) do %><i class="icon-off"></i> Sign Out<% end %></li>
+				<% else %>
+				<li><%= link_to(register_path) do %><i class="icon-user"></i>Create Account<% end %></li>
+				<li><%= link_to(signin_path)  do %><i class="icon-cog"></i> Sign In<% end %></li>
+				<% end %>
+			</ul>
+				</li>
 			</ul>
 		</div>
 	</nav>
-			<ul class="nav pull-right">
+			<ul class="user-menu nav pull-right">
 				<% if user_signed_in? %>
 				<li><%= link_to current_user.bboy_name + " - " + current_user.crew_name, "/" + current_user.bboy_name %></li>
 				<li><%= link_to "Sign out", signout_path %></li>
