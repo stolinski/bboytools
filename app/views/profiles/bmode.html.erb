@@ -1,46 +1,14 @@
-<h1>Battle Mode</h1>
+<h1 class="page-title">Battle Mode</h1>
 <div class="span6">
-	<h4>Top Rock</h4>
-	<div class="moves">
-		<% @tops.each do |move| %>
+	<% current_type = nil %>
+	<% @moves.each do |move| %>
+		<% if move.type.name != current_type %>
+		<% current_type = move.type.name %>
+			<h4><%= move.type.name %></h4>
+			<div class="moves">
+		<% end %>
 		<div id="move_<%= move.id %>" class="bmodewrap <%= move.bmode %>">
 			<div class="move <%= move.type.name.downcase.tr(" ", "-") %>"><%= move.name %></div>
-			<div class="bmode">
-				<div class="use-move">Use Move?</div>
-				<%= render 'formbmode', move: move %>
-			</div>
-		</div>
-		<% end %>
-	</div>
-	<h4>Footwork</h4>
-	<div class="moves">
-		<% @footwork.each do |move| %>
-		<div id="move_<%= move.id %>"  class="bmodewrap <%= move.bmode %>">
-			<div id="move_<%= move.id %>" class="move <%= move.type.name.downcase.tr(" ", "-") %>"><%= move.name %></div>
-			<div class="bmode">
-				<div class="use-move">Use Move?</div>
-				<%= render 'formbmode', move: move %>
-			</div>
-		</div>
-		<% end %>
-	</div>
-	<h4>Power Moves</h4>
-	<div class="moves">
-		<% @power.each do |move| %>
-		<div id="move_<%= move.id %>"  class="bmodewrap <%= move.bmode %>">
-			<div id="move_<%= move.id %>" class="move <%= move.type.name.downcase.tr(" ", "-") %>"><%= move.name %></div>
-			<div class="bmode">
-				<div class="use-move">Use Move?</div>
-				<%= render 'formbmode', move: move %>
-			</div>
-		</div>
-		<% end %>
-	</div>
-	<h4>Freezes</h4>
-	<div class="moves">
-		<% @freezes.each do |move| %>
-		<div id="move_<%= move.id %>"  class="bmodewrap <%= move.bmode %>">
-			<div id="move_<%= move.id %>" class="move <%= move.type.name.downcase.tr(" ", "-") %>"><%= move.name %></div>
 			<div class="bmode">
 				<div class="use-move">Use Move?</div>
 				<%= render 'formbmode', move: move %>

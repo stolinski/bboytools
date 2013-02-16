@@ -17,10 +17,10 @@ class ProfilesController < ApplicationController
   end
 
   def bmode
-    @power = current_user.moves.power
-    @footwork = current_user.moves.footwork
-    @freezes = current_user.moves.freezes
-    @tops = current_user.moves.toprock
+    @moves = current_user.moves
+                .joins(:type)
+                .order('types.row_order')
+                .all
     respond_to do |format|
       format.html # index.html.erb
     end

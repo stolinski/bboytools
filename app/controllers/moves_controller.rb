@@ -7,8 +7,6 @@ class MovesController < ApplicationController
   							.joins(:type)
   							.order('types.row_order')
   							.all
-  	@allmoves = current_user.moves.all
-  	@moves_list = @allmoves.group_by { |t| t.type }
 
   	respond_to do |format|
       format.html # index.html.erb
