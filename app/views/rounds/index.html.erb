@@ -1,0 +1,41 @@
+<h1>Listing rounds</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rounds.each do |round| %>
+  <tr>
+    <td><%= round.name %></td>
+    <td><%= link_to 'Show', round %></td>
+    <td><%= link_to 'Edit', edit_round_path(round) %></td>
+    <td><%= link_to 'Destroy', round, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Round', new_round_path %>
+
+
+<h3>Unused Moves</h3>
+<div class="span6">
+  <%= link_to 'Add Move', new_move_path, class: "button" %>
+    <ul class="moves">
+    <% @moves.each do |move| %>
+    <li class="move <%= move.type.name.downcase.tr(" ", "-") %>">
+      <div class="icons">
+        <%= link_to(edit_move_path(move)) do %><i class="icon-pencil"></i><% end %>
+        <%= link_to(move, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
+      </div>
+      <span><%= move.type.name %></span>
+      <%= move.name %>
+    </li>
+    <% end %>
+  </ul>
+</div>
