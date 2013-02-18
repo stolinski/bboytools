@@ -11,7 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216012135) do
+ActiveRecord::Schema.define(:version => 20130217222936) do
+
+  create_table "battles", :force => true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.date     "date"
+    t.text     "results"
+    t.text     "notes"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "iteration"
+  end
+
+  add_index "battles", ["user_id"], :name => "index_battles_on_user_id"
+
+  create_table "battles_users", :id => false, :force => true do |t|
+    t.integer "battle_id"
+    t.integer "user_id"
+    t.text    "notes"
+    t.text    "results"
+  end
+
+  add_index "battles_users", ["battle_id"], :name => "index_battles_users_on_battle_id"
+  add_index "battles_users", ["user_id"], :name => "index_battles_users_on_user_id"
 
   create_table "moves", :force => true do |t|
     t.string   "name"

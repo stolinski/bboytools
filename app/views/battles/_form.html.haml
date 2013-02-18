@@ -1,0 +1,13 @@
+= simple_form_for(@battle) do |f|
+	= f.error_notification
+
+	.form-inputs
+		= f.input :name
+		= f.input :iteration
+		= f.input :location
+		= f.input :date, :as => :datepicker
+		= f.input :user_id
+
+	.form-actions
+		= f.button :submit, class: "btn-primary"
+

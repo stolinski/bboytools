@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @battle.name %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @battle.location %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @battle.date %>
+</p>
+
+<p>
+  <b>Results:</b>
+  <%= @battle.results %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @battle.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_battle_path(@battle) %> |
+<%= link_to 'Back', battles_path %>

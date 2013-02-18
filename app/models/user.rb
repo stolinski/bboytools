@@ -14,4 +14,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true,  uniqueness: true
 
   has_many :moves
+  has_many :battles_users
+  has_many :battles, through: :battles_users
 end

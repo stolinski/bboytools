@@ -11,7 +11,7 @@ end
 
 gem 'devise'
 gem 'simple_form'
-
+gem "haml"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -25,12 +25,17 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+group :development, :test do
+  gem 'shoulda'
+end
+
 
 group :production do
   gem 'pg', '0.12.2'
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -3,7 +3,10 @@ class RoundsController < ApplicationController
   # GET /rounds.json
   def index
     @rounds = Round.all
-    @moves = current_user.moves.notused
+    @moves = current_user.moves
+                .joins(:type)
+                .order('types.row_order')
+                .all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @rounds }

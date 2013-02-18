@@ -1,5 +1,6 @@
-<h1>Listing rounds</h1>
-
+<h1>Your Sets</h1>
+<div class="row">
+<div class="span6">
 <table>
   <tr>
     <th>Name</th>
@@ -20,11 +21,11 @@
 
 <br />
 
-<%= link_to 'New Round', new_round_path %>
+<%= link_to 'New Set', new_round_path %>
+</div>
 
-
-<h3>Unused Moves</h3>
 <div class="span6">
+  <h3>Unused Moves</h3>
   <%= link_to 'Add Move', new_move_path, class: "button" %>
     <ul class="moves">
     <% @moves.each do |move| %>
@@ -38,4 +39,5 @@
     </li>
     <% end %>
   </ul>
+</div>
 </div>

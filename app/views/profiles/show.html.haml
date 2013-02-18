@@ -1,0 +1,36 @@
+- if @user.id == current_user.id
+	.page-header
+		%h1
+			Yo, #{@user.bboy_name}!
+	.row
+		.span6
+			%h3 Your Recently Added Moves
+			= link_to 'New Move', new_move_path, class: 'button'
+			- if @moves
+				%ul.moves
+					- @moves.each do |move|
+						%li{:class => "move #{move.type.name.downcase.tr(" ", "-")}"}
+							%span= move.type.name
+							= move.name
+				= link_to 'View your move book', moves_path
+- else
+	.page-header
+		%h1
+			= @user.bboy_name
+			\: #{@user.crew_name}
+	%h3
+		= @user.bboy_name
+		's Moves
+	%p
+		= @user.bboy_name
+		's move book is private, don't bite!
+
+%h3.battle-log
+	Battle Log
+- @battles.each do |battle|
+	.battle
+		%h4= battle.name
+		.date
+			= battle.date
+		.notes
+			= battle.notes
