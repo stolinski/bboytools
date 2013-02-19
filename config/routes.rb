@@ -1,4 +1,6 @@
 Sets::Application.routes.draw do
+  resources :user_battles
+
   resources :battles
 
 
@@ -11,7 +13,6 @@ Sets::Application.routes.draw do
 
 
   resources :types
-  resources :battles_user
 
   devise_for :users
   devise_scope :user do

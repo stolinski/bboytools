@@ -1,10 +1,9 @@
 class ProfilesController < ApplicationController
 	before_filter :authenticate_user!, except: [:time, :users]
   def show
-
   	@user = User.find_by_bboy_name(params[:id])
+
   	if @user
-  		@battles = current_user.battles
   		@moves = current_user.moves
       							.joins(:type)
       							.limit(5)

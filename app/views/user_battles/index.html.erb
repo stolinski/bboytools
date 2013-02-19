@@ -1,0 +1,27 @@
+<h1>Listing user_battles</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Battle</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_battles.each do |user_battle| %>
+  <tr>
+    <td><%= user_battle.user_id %></td>
+    <td><%= user_battle.battle_id %></td>
+    <td><%= user_battle.notes %></td>
+    <td><%= link_to 'Show', user_battle %></td>
+    <td><%= link_to 'Edit', edit_user_battle_path(user_battle) %></td>
+    <td><%= link_to 'Destroy', user_battle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User battle', new_user_battle_path %>

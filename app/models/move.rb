@@ -12,3 +12,4 @@ class Move < ActiveRecord::Base
   scope :freezes, where( type_id: [4,5])
   scope :notused, where( round_id: nil)
 end
+

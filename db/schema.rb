@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130217222936) do
+ActiveRecord::Schema.define(:version => 20130218233859) do
 
   create_table "battles", :force => true do |t|
     t.string   "name"
@@ -26,16 +26,6 @@ ActiveRecord::Schema.define(:version => 20130217222936) do
   end
 
   add_index "battles", ["user_id"], :name => "index_battles_on_user_id"
-
-  create_table "battles_users", :id => false, :force => true do |t|
-    t.integer "battle_id"
-    t.integer "user_id"
-    t.text    "notes"
-    t.text    "results"
-  end
-
-  add_index "battles_users", ["battle_id"], :name => "index_battles_users_on_battle_id"
-  add_index "battles_users", ["user_id"], :name => "index_battles_users_on_user_id"
 
   create_table "moves", :force => true do |t|
     t.string   "name"
@@ -65,6 +55,17 @@ ActiveRecord::Schema.define(:version => 20130217222936) do
     t.datetime "updated_at", :null => false
     t.integer  "row_order"
   end
+
+  create_table "user_battles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "battle_id"
+    t.string   "notes"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_battles", ["battle_id"], :name => "index_user_battles_on_battle_id"
+  add_index "user_battles", ["user_id"], :name => "index_user_battles_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

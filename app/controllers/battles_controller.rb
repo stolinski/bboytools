@@ -3,7 +3,7 @@ class BattlesController < ApplicationController
   # GET /battles.json
   def index
     @battles = Battle.all
-
+    @user_battle = UserBattle.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @battles }
@@ -25,7 +25,6 @@ class BattlesController < ApplicationController
   # GET /battles/new.json
   def new
     @battle = Battle.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @battle }

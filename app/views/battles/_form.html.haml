@@ -6,7 +6,8 @@
 		= f.input :iteration
 		= f.input :location
 		= f.input :date, :as => :datepicker
-		= f.input :user_id
+		= f.fields_for :user_battles do |builder|
+			= render "ubform", f: builder
 
 	.form-actions
 		= f.button :submit, class: "btn-primary"
