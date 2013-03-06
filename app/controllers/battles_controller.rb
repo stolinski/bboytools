@@ -2,7 +2,8 @@ class BattlesController < ApplicationController
   # GET /battles
   # GET /battles.json
   def index
-    @battles = Battle.all
+    @battles = Battle.joins(:users).joins(:user_battles).all
+    @my_battles = current_user.battles
     @user_battle = UserBattle.new
     respond_to do |format|
       format.html # index.html.erb

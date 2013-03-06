@@ -1,3 +1,5 @@
+@import 'base';
+
 @charset "UTF-8";
 @-ms-viewport {
 	width: device-width;
@@ -6,7 +8,8 @@
 @viewport {
 	width: device-width;
 }
-body {
+body, input, button, select, textarea {
+	font-family: 'Montserrat', sans-serif;
 }
 .page-title {
 	margin-top: 60px;
@@ -33,6 +36,7 @@ body {
 .navbar .brand {
 	color: #eee;
 	text-shadow: 0 1px 0 #555;
+	text-transform: uppercase;
 }
 .button {
 	background: #333;
@@ -43,6 +47,8 @@ body {
 	display: inline-block;
 	border: 3px solid #333;
 	font-weight: bold;
+	text-transform: uppercase;
+	@include transition;
 	&:hover {
 		border-color: #555;
 		color:white;

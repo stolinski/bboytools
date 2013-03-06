@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :bboy_name, :crew_name, :battle_id
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :bboy_name, :crew_name, :battle_id, :user_battles_attributes
   # attr_accessible :title, :body
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -14,10 +14,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true,  uniqueness: true
 
   has_many :moves
-  has_many :battle_users
-  has_many :battles, through: :battle_users
+  has_many :user_battles
+  has_many :battles, through: :user_battles
 
-  accepts_nested_attributes_for :battle_users
+  accepts_nested_attributes_for :user_battles
 end
 
 
