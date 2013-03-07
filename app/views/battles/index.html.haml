@@ -1,32 +1,39 @@
 %h1.page-title
 	Battle Log
 
+.row
+	.span6
+		- @battles.each do |battle|
+			.battle
+				= battle.name
+				= battle.location
+				= battle.date
+				= battle.results
 
-- @battles.each do |battle|
-	.battle
-		= battle.name
-		= battle.location
-		= battle.date
-		= battle.results
+				%br
+				= link_to 'Show', battle
+				= link_to 'Edit', edit_battle_path(battle)
+				= link_to 'Destroy', battle, method: :delete, data: { confirm: 'Are you sure?' }
 
-		%br
-		= link_to 'Show', battle
-		= link_to 'Edit', edit_battle_path(battle)
-		= link_to 'Destroy', battle, method: :delete, data: { confirm: 'Are you sure?' }
+			= simple_form_for(@user_battle) do |f|
+				= f.error_notification
+				.form-inputs
+					= f.input :notes
+					=f.hidden_field :user_id, :value => current_user.id
+					=f.hidden_field :battle_id, :value => battle.id
+				= f.button :submit, class: "btn-primary"
 
-	= simple_form_for(@user_battle) do |f|
-		= f.error_notification
-		.form-inputs
-			= f.input :notes
-			=f.hidden_field :user_id, :value => current_user.id
-			=f.hidden_field :battle_id, :value => battle.id
-		= f.button :submit, class: "btn-primary"
+		= link_to 'New Battle', new_battle_path
 
-= link_to 'New Battle', new_battle_path
+	.span6
+		%h2.cat
+			My Battles
 
-- @my_battles.each do |my_battle|
-	.battle
-		= my_battle.name
-		= my_battle.location
-		= my_battle.date
-		= my_battle.results
+		- @my_battles.each do |my_battle|
+			.battle
+				%h4
+					= my_battle.name
+				= my_battle.location
+				= my_battle.date
+				= my_battle.results
+

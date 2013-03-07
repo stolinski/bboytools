@@ -14,6 +14,7 @@
 		<div id="inner-wrap">
 			<%= render '/layouts/nav' %>
 			<div class="container">
+				<div class="wrap">
 				<% flash.each do |type, message| %>
 				<div class="alert <%= flash_class type %>">
 					<button class="close" data-dismiss="alert">x</button>
@@ -21,6 +22,7 @@
 				</div>
 				<% end %>
 				<%= yield %>
+				</div>
 			</div>
 		</div>
 	</div>
