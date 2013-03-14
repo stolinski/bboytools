@@ -13,5 +13,6 @@
   <%= f.input :name %>
   <%= f.input :type_id, :collection => Type.all, :selected => @move.type_id  %>
   <%= f.input :video %>
-  <%= f.button :submit, :class => 'btn btn-primary' %>
+  <%= f.input :description, input_html: { rows: 10, class: 'span12 field' } %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>

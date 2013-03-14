@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218233859) do
+ActiveRecord::Schema.define(:version => 20130314165827) do
 
   create_table "battles", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20130218233859) do
     t.boolean  "bmode"
     t.integer  "round_id"
     t.integer  "round_position"
+    t.text     "description"
   end
 
   add_index "moves", ["round_id"], :name => "index_moves_on_round_id"

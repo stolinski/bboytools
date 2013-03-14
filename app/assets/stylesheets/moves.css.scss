@@ -6,6 +6,7 @@
 .moves {
 	margin:0;
 	.move {
+		cursor: pointer;
 		list-style: none;
 		border-radius: 5px;
 		padding:10px;
@@ -15,19 +16,19 @@
 		background: #eee;
 		color: #333;
 		box-shadow: 1px 1px 2px rgba(black, 0.5);
+		border-left: 12px solid #eee;
 		span {
 			line-height: 16px;
 			display: block;
 			font-size:0.6em;
 			font-weight: normal;
 		}
-		&.go-down {  border-left: 12px solid $purp; }
-		&.footwork { border-left: 12px solid $green; }
-		&.power-move { border-left: 12px solid $red + 20; }
-		&.power-combo { border-left: 12px solid $red; }
-		&.top-rock { border-left: 12px solid $green + 40; }
-		&.freeze { border-left: 12px solid $blue; }
-		&.freeze-combo { border-left: 12px solid $blue - 40; }
+		&.go-down {  border-color: $purp; }
+		&.footwork { border-color: $green; }
+		&.power-move { border-color: $red; }
+		&.top-rock { border-color: $teal; }
+		&.freeze { border-color: $blue; }
+		&.burner { border-color: $orange;  }
 		a {
 			color:#333;
 			opacity: 0.5;
@@ -47,5 +48,9 @@
 		&:hover .icons {
 			opacity: 1;
 		}
+	}
+	.move-deets {
+		display: none;
+		font-size:14px;
 	}
 }

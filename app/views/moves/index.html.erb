@@ -16,6 +16,12 @@
 				</div>
 				<span><%= move.type.name %></span>
 				<%= move.name %>
+				<div class="move-deets">
+					<p><%= move.description %></p>
+					<% if move.video != "" %>
+						<a href="<%= move.video %>">Watch Footage</a>
+					<% end %>
+				</div>
 			</li>
 	<% end %>
 	</ul>

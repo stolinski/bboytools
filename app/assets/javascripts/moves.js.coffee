@@ -4,3 +4,6 @@
 
 
 
+$ ->
+	$('.move').click ->
+		$(this).children('.move-deets').slideToggle()
