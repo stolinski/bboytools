@@ -1,6 +1,6 @@
 Sets::Application.routes.draw do
   resources :user_battles
-
+  resources :round_moves
   resources :battles
 
 

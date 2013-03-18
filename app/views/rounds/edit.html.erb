@@ -1,6 +1,25 @@
 <h1>Editing round</h1>
-
+<div class="row">
+<div class="span6">
 <%= render 'form' %>
 
 <%= link_to 'Show', @round %> |
 <%= link_to 'Back', rounds_path %>
+
+</div>
+<div class="span6">
+  <h3>Unused Moves</h3>
+    <ul class="moves">
+    <% @moves.each do |move| %>
+    <li class="move <%= move.type.name.downcase.tr(" ", "-") %>">
+      <div class="icons">
+        <%= link_to(edit_move_path(move)) do %><i class="icon-pencil"></i><% end %>
+        <%= link_to(move, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
+      </div>
+      <span><%= move.type.name %></span>
+      <%= move.name %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+</div>

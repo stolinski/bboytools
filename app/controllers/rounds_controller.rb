@@ -2,7 +2,10 @@ class RoundsController < ApplicationController
   # GET /rounds
   # GET /rounds.json
   def index
-    @rounds = Round.all
+    @rounds = Round
+                .all
+    @roundm = RoundMove.new
+    @roundsms = RoundMove.all
     @moves = current_user.moves
                 .joins(:type)
                 .order('types.row_order')
@@ -30,7 +33,7 @@ class RoundsController < ApplicationController
     @round = Round.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.js
       format.json { render json: @round }
     end
   end
@@ -38,6 +41,11 @@ class RoundsController < ApplicationController
   # GET /rounds/1/edit
   def edit
     @round = Round.find(params[:id])
+    @moves = current_user.moves
+                .where(round_id: nil)
+                .joins(:type)
+                .order('types.row_order')
+                .all
   end
 
   # POST /rounds

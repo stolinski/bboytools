@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :bboy_name, :crew_name, :battle_id, :user_battles_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :bboy_name, :crew_name, :battle_id, :user_battles_attributes, :round_id
   # attr_accessible :title, :body
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true,  uniqueness: true
 
   has_many :moves
+  has_many :rounds
   has_many :user_battles
   has_many :battles, through: :user_battles
 

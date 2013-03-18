@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314165827) do
+ActiveRecord::Schema.define(:version => 20130317175302) do
 
   create_table "battles", :force => true do |t|
     t.string   "name"
@@ -44,11 +44,24 @@ ActiveRecord::Schema.define(:version => 20130314165827) do
   add_index "moves", ["type_id"], :name => "index_moves_on_type_id"
   add_index "moves", ["user_id"], :name => "index_moves_on_user_id"
 
+  create_table "round_moves", :force => true do |t|
+    t.integer  "round_id"
+    t.integer  "move_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "round_moves", ["move_id"], :name => "index_round_moves_on_move_id"
+  add_index "round_moves", ["round_id"], :name => "index_round_moves_on_round_id"
+
   create_table "rounds", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
+
+  add_index "rounds", ["user_id"], :name => "index_rounds_on_user_id"
 
   create_table "types", :force => true do |t|
     t.string   "name"
