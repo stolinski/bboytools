@@ -58,8 +58,8 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    font-awesome-rails (0.4.1)
-      railties (~> 3.1)
+    font-awesome-rails (3.0.2.0)
+      railties (>= 3.1)
     fssm (0.2.9)
     haml (4.0.0)
       tilt
@@ -151,7 +151,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   devise
-  font-awesome-rails
+  font-awesome-rails (~> 3.0.2.0)
   haml
   jquery-rails
   jquery-ui-rails

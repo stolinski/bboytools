@@ -1,0 +1,3 @@
+<li class="move <%= roundm.move.type.name.downcase.tr(" ", "-") %>">
+  <%= roundm.move.name %><%= link_to(roundm, class: 'delete', method: :delete) do %><i class="icon-remove-circle"></i><% end %>
+</li>

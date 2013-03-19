@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'base';
 
-.moves {
+.moves, .round-moves {
 	margin:0;
 	.move {
 		cursor: pointer;
@@ -59,3 +59,4 @@
 		margin-right:10px;
 	}
 }
+

@@ -1,3 +1,60 @@
 // Place all the styles related to the rounds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'base';
+
+.round-moves {
+	display: none;
+}
+.round {
+	margin-bottom: 30px;
+	border-bottom: solid 4px #2c3E50;
+	&.active {
+		border:dashed 4px rgba($red, 0.4);
+	}
+	.add-moves {
+		float:right;
+		font-size:12px;
+		margin:0 10px;
+	}
+	h3 {
+		.icon-chevron-right {
+			margin: 8px 10px 0 0;
+			@include transition;
+		}
+		cursor: pointer;
+		margin-top: 4px;
+		line-height: 24px;
+		.delete {
+			margin-right: 10px;
+			opacity: 0;
+			float:right;
+			@include transition;
+			color:$red;
+			text-shadow:none;
+		}
+		&:hover {
+			.icon-chevron-right {
+				margin-right: 5px;
+			}
+			.delete {
+				opacity: 1;
+			}
+		}
+	}
+	&.open {
+		h3 {
+			.icon-chevron-right {
+				margin-right: 5px;
+			  -webkit-transform: rotate(90deg);  /* Chrome, Safari 3.1+ */
+   			  -moz-transform: rotate(90deg);  /* Firefox 3.5-15 */
+   			   -ms-transform: rotate(90deg);  /* IE 9 */
+   			    -o-transform: rotate(90deg);  /* Opera 10.50-12.00 */
+   			       transform: rotate(90deg);
+   			}
+		}
+	}
+}
+.delete {
+	float:right;
+}

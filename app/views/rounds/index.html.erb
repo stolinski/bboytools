@@ -3,21 +3,28 @@
 <div class="span6">
 
 
+
 <% @rounds.each do |round| %>
-  <div>
-    <%= round.name %>
-    <%= link_to 'Destroy', round, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <div class="round round-<%= round.id %> ">
+    <!-- Rounds Name -->
+    <h3>
+      <i class="icon-chevron-right"></i>
+      <%= round.name %>
+      <%= link_to(round, class: 'delete', method: :delete) do %><i class="icon-trash"></i><% end %>
+      <span class="add-moves"><input class="hidden" value="<%= round.id %>">Add Moves</span>
+    </h3>
     <ul class="round-moves">
     <% round.round_moves.each do |roundm| %>
         <li class="move <%= roundm.move.type.name.downcase.tr(" ", "-") %>">
-          <%= roundm.move.name %>
+          <%= roundm.move.name %><%= link_to(roundm, class: 'delete', remote: true, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
         </li>
     <% end %>
     </ul>
   </div>
 <% end %>
 
-<%= link_to 'New Set', new_round_path, id: 'new_round_btn', remote: true %>
+
+<%= link_to 'New Set', new_round_path, id: 'new_round_btn', class: "button", remote: true %>
 </div>
 
 
@@ -37,7 +44,7 @@
 
   <div class="form-inputs">
     <%= f.input :move_id, as: :hidden, input_html: { value: move.id } %>
-    <%= f.input :round_id, as: :hidden, input_html: { value: 1 } %>
+    <%= f.input :round_id, as: :hidden, input_html: { value: 1, class: 'round_id' } %>
     <%= f.button :submit, "+" %>
   </div>
 
