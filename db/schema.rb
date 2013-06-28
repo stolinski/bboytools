@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(:version => 20130317175302) do
 
   add_index "battles", ["user_id"], :name => "index_battles_on_user_id"
 
+  create_table "battles_users", :id => false, :force => true do |t|
+    t.integer "battle_id"
+    t.integer "user_id"
+    t.text    "notes"
+    t.text    "results"
+  end
+
+  add_index "battles_users", ["battle_id"], :name => "index_battles_users_on_battle_id"
+  add_index "battles_users", ["user_id"], :name => "index_battles_users_on_user_id"
+
   create_table "moves", :force => true do |t|
     t.string   "name"
     t.string   "video"

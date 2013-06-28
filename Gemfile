@@ -26,7 +26,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 group :development, :test do
-  gem 'shoulda'
+  # gem 'shoulda', '3.5.0'
 end
 
 
