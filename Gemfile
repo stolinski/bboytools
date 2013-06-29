@@ -12,6 +12,7 @@ end
 gem 'devise'
 gem 'simple_form'
 gem "haml"
+gem 'mysql2'
 
 gem 'yaml_db'
 # Gems used only for assets and not required
