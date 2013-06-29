@@ -8,19 +8,31 @@
 }
 .round {
 	margin-bottom: 30px;
+	padding:10px 20px 10px 10px;
 	border-bottom: solid 4px #2c3E50;
+	position: relative;
+	@include transition;
 	&.active {
 		border:dashed 4px rgba($red, 0.4);
 	}
+	&:hover {
+		background: rgba(black, 0.1);
+	}
 	.add-moves {
-		float:right;
+		position: absolute;
+		top:0;
+		right:40px;
 		font-size:12px;
 		margin:0 10px;
 	}
 	h3 {
+		padding:0 0 0 30px;
+		@include transition;
 		.icon-chevron-right {
-			margin: 8px 10px 0 0;
+			margin: -1px 10px 0 -27px;
 			@include transition;
+			position: absolute;
+			
 		}
 		cursor: pointer;
 		margin-top: 4px;
@@ -34,19 +46,17 @@
 			text-shadow:none;
 		}
 		&:hover {
-			.icon-chevron-right {
-				margin-right: 5px;
-			}
 			.delete {
 				opacity: 1;
 			}
 		}
 	}
 	&.open {
+		background: rgba(black, 0.1);
 		h3 {
 			.icon-chevron-right {
-				margin-right: 5px;
-			  -webkit-transform: rotate(90deg);  /* Chrome, Safari 3.1+ */
+			 margin-right: 5px;
+	       -webkit-transform: rotate(90deg);  /* Chrome, Safari 3.1+ */
    			  -moz-transform: rotate(90deg);  /* Firefox 3.5-15 */
    			   -ms-transform: rotate(90deg);  /* IE 9 */
    			    -o-transform: rotate(90deg);  /* Opera 10.50-12.00 */
@@ -56,5 +66,8 @@
 	}
 }
 .delete {
+	right:10px;
+	top:9px;
+	position: absolute;
 	float:right;
 }

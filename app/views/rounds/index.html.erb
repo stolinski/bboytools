@@ -7,11 +7,11 @@
 <% @rounds.each do |round| %>
   <div class="round round-<%= round.id %> ">
     <!-- Rounds Name -->
+    <span class="add-moves"><input class="hidden" value="<%= round.id %>">Add Moves</span>
     <h3>
       <i class="icon-chevron-right"></i>
       <%= round.name %>
-      <%= link_to(round, class: 'delete', method: :delete) do %><i class="icon-trash"></i><% end %>
-      <span class="add-moves"><input class="hidden" value="<%= round.id %>">Add Moves</span>
+      <%= link_to(round, class: 'delete', method: :delete, data: { confirm: 'Are you sure?' }) do %><i class="icon-trash"></i><% end %>
     </h3>
     <ul class="round-moves">
     <% round.round_moves.each do |roundm| %>

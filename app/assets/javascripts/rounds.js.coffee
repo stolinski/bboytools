@@ -13,5 +13,11 @@ $ ->
 	$('.add-moves').click ->
 		$yo = $(this).children('input').val()
 		$('.round_id').val($yo)
-		$('.active').removeClass('active')
-		$(this).parents('.round').addClass('active')
+		if $(this).parents('.round').hasClass('active')
+			$('.active').removeClass('active')
+		else
+			$('.active').removeClass('active')
+			$(this).parents('.round').addClass('active')
+
+	$('.new_round_move .btn').on 'click', ->
+			$(this).parents('.move').fadeOut()

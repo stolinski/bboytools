@@ -6,6 +6,7 @@
 .moves, .round-moves {
 	margin:0;
 	.move {
+		position: relative;
 		cursor: pointer;
 		list-style: none;
 		border-radius: 5px;
