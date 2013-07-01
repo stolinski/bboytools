@@ -2,7 +2,14 @@
 <div class="row">
 <div class="span12 move-call-out alpha omega">
 	<div id="audio"></div>
-	<button class="btn-success btn" id="start">Start</button>
+	<div class="text-to-speach">
+		<p class="vol-off hide vol-btn">
+			Text to Speach Off <icon class="icon-volume-off"></icon>
+		</p>
+		<p class="vol-on vol-btn">
+			Text to Speach On <icon class="icon-volume-up"></icon>
+		</p>
+	</div>
 	<div class="moves" data-cycle-speed="100" data-cycle-slides="> div">
 		<% @moves.each do |move| %>
 			<div class="move <%= move.type.name.downcase.tr(" ", "-") %>">
@@ -10,5 +17,6 @@
 			</div>
 		<% end %>
 	</div>
+	<button class="btn-success btn" id="start">Start</button>
 </div>
 </div>

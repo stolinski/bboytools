@@ -63,6 +63,18 @@ body, input, button, select, textarea {
 		text-decoration: none;
 	}
 }
+.btn-success {
+	background: $green;
+	&:hover {
+		background: $green - 20;
+	}
+}
+.btn-danger {
+	background: $red;
+	&:hover {
+		background: $red - 20;
+	}
+}
 #slide-nav {
 	display: none;
 	width: 30px;

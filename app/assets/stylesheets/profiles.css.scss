@@ -69,6 +69,17 @@
 		text-decoration: none;
 	}
 }
+
+.text-to-speach {
+	float:right;
+	position: relative;
+	top:-30px;
+	p {
+		cursor: pointer;
+		font-size: 16px;
+	}
+}
+
 .move-call-out {
 	.moves {
 	}
