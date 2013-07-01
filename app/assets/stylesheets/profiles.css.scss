@@ -1,7 +1,7 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import 'base';
 .thirty {
 	font-size: 250px;
 	line-height: 250px;
@@ -67,6 +67,14 @@
 	&:hover {
 		background: #666;
 		text-decoration: none;
+	}
+}
+.move-call-out {
+	.moves {
+	}
+	.move {
+		font-size: 150px;
+		line-height: 120px;	
 	}
 }
 

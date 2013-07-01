@@ -1,0 +1,14 @@
+<h1 class="page-title">Move Call-Out</h1>
+<div class="row">
+<div class="span12 move-call-out alpha omega">
+	<div id="audio"></div>
+	<button class="btn-success btn" id="start">Start</button>
+	<div class="moves" data-cycle-speed="100" data-cycle-slides="> div">
+		<% @moves.each do |move| %>
+			<div class="move <%= move.type.name.downcase.tr(" ", "-") %>">
+				<%= move.name %>
+			</div>
+		<% end %>
+	</div>
+</div>
+</div>

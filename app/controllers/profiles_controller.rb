@@ -28,6 +28,17 @@ class ProfilesController < ApplicationController
   end
 
 
+  def callout
+    @moves = current_user.moves
+                .joins(:type)
+                .all
+                # .order('types.row_order')
+                # .all
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+
   def users
     @users = User.all
     respond_to do |format|
