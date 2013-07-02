@@ -1,4 +1,7 @@
 Sets::Application.routes.draw do
+  resources :blogs
+
+
   resources :user_battles
   resources :round_moves
   resources :battles
@@ -10,8 +13,6 @@ Sets::Application.routes.draw do
   get "profiles/show"
 
   resources :moves
-
-
   resources :types
 
   devise_for :users
@@ -26,6 +27,7 @@ Sets::Application.routes.draw do
   get '/move-call-out', to: 'profiles#callout', as: :callout
   get '/users', to: 'profiles#users', as: :users
   get '/:id', to: 'profiles#show', as: :userpage
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
   # Sample of regular route:

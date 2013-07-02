@@ -14,6 +14,8 @@ gem 'simple_form'
 gem "haml"
 gem 'mysql2'
 
+gem 'bluecloth', '>= 2.0.0'
+
 gem 'yaml_db'
 # Gems used only for assets and not required
 # in production environments by default.
