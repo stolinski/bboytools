@@ -2,14 +2,11 @@
   <h1>Users</h1>
 </div>
 
-<table>
-  <tr>
-    <th>Users</th>
-  </tr>
-
+<ol>
 <% @users.each do |user| %>
-  <tr>
-    <td><%= user.first_name %></td>
-  </tr>
-<% end %>
-</table>
+  <li>
+    <%= user.first_name %>
+  </li>
+<% end %>	
+</ol>
+

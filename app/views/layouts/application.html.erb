@@ -7,6 +7,11 @@
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
+	<meta property="og:title" content="Bboy Tools" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://bboytools.com/" />
+	<meta property="og:image" content="http://bboytools.com/screenshot.png" />
+	<meta property="og:description" content="A free tool for Bboys and Bgirls to use in battle and practice." />
 	<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -33,6 +38,29 @@
 				<%= yield %>
 				</div>
 			</div>
+			<footer class="clearfix">
+				<div class="container">
+					<div class="row">
+						<div class="span4">
+							<h3>About Bboy Tools</h3>
+							<p>Bboy Tools was created in 2013 by Tora from the Robotops Crew. This is a free tool for any bboys/bgirls that want to use it.</p>
+						</div>
+						<div class="span4">
+							<h3>Technical Details</h3>
+							<p>
+								Interested in the creation of the site?<br />Checkout the code on <a target="_blank" href="https://github.com/stolinski/bboytools">Github</a>. 
+							</p>
+							<p>
+								Interested in learning web development?<br />Checkout <a target="_blank" href="http://www.youtube.com/user/LevelUpTuts">Level Up Tuts</a> for free web development tutorials.
+							</p>
+						</div>
+						<div class="span4">
+							<h3>Contact Me</h3>
+							<p>You can reach me on Twitter <a target="_blank" href="https://twitter.com/stolinski">@stolinski</a> or on my website <a target="_blank" href="http://www.scotttolinski.com/">scotttolinski.com</a></p>
+						</div>
+					</div>
+				</div>
+			</footer>
 		</div>
 	</div>
 </body>

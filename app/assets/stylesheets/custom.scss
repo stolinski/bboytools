@@ -425,3 +425,16 @@ border-radius: 0;
 		transform: translate3d(0, 0, 0);
 	}
 }
+
+
+footer {
+	margin-top: 40px;
+	padding:40px 0;
+	background: rgba(black, 0.8);
+	color:white;
+	a {
+		&:hover {
+			color:$blue;
+		}
+	}
+}
