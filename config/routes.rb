@@ -22,6 +22,8 @@ Sets::Application.routes.draw do
     get "signout", to: "devise/sessions#destroy", as: :signout
   end
 
+  get '/blog', to: 'blogs#index'
+
   get '/time', to: 'profiles#time', as: :time
   get '/battle-mode', to: 'profiles#bmode', as: :bmode
   get '/move-call-out', to: 'profiles#callout', as: :callout

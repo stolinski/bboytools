@@ -1,22 +1,25 @@
 <h1 class="page-title">Move Call-Out</h1>
 <div class="row">
-<div class="span12 move-call-out alpha omega">
-	<div id="audio"></div>
-	<div class="text-to-speach">
-		<p class="vol-off hide vol-btn">
-			Text to Speach Off <icon class="icon-volume-off"></icon>
-		</p>
-		<p class="vol-on vol-btn">
-			Text to Speach On <icon class="icon-volume-up"></icon>
-		</p>
+	<div class="span12 move-call-out alpha omega">
+		<div id="audio"></div>
+		<div class="text-to-speach">
+			<p class="vol-off hide vol-btn">
+				Text to Speach Off <icon class="icon-volume-off"></icon>
+			</p>
+			<p class="vol-on vol-btn">
+				Text to Speach On <icon class="icon-volume-up"></icon>
+			</p>
+		</div>
+		<div class="moves" data-cycle-random="true" data-cycle-timeout="4000" data-cycle-slides="> div">
+			<% @moves.each do |move| %>
+				<div class="move <%= move.type.name.downcase.tr(" ", "-") %>">
+					<%= move.name %>
+				</div>
+			<% end %>
+		</div>
+		<button class="btn-success btn" id="start">Start</button>
+		<div class="delay">
+			Delay:<input id="speed" type="number" value="4"/>
+		</div>
 	</div>
-	<div class="moves" data-cycle-speed="100" data-cycle-slides="> div">
-		<% @moves.each do |move| %>
-			<div class="move <%= move.type.name.downcase.tr(" ", "-") %>">
-				<%= move.name %>
-			</div>
-		<% end %>
-	</div>
-	<button class="btn-success btn" id="start">Start</button>
-</div>
 </div>

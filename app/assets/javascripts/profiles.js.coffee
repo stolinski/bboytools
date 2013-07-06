@@ -49,3 +49,10 @@ $ ->
 			$(this).addClass('hide')
 			$('.vol-off').removeClass('hide')
 			sound = false
+
+	$('#speed').on 'change', ->
+		speed = $(this).val() * 1000
+		console.log speed
+		$('.moves').cycle('destroy').cycle({
+			timeout: speed
+			})
