@@ -1,14 +1,19 @@
 <h1>The Chagelog</h1>
 <% @blogs.each do |blog| %>
-    <h2><%= blog.title %></h2>
-    <p>
-      <%= format blog.content %>      
-    </p>
-    <% if current_user.id == 1 %>
-    	<%= link_to 'Show', blog %>
-    	<%= link_to 'Edit', edit_blog_path(blog) %>
-    	<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-	<% end %>
+    <article class="blog-post">
+    	<h2><%= blog.title %></h2>
+    	<p>
+    		Posted On: <time><%= time_tag(blog.created_at) %></time><br />Posted By: Tora - Robotops
+    	</p>
+    	<p>
+    	  <%= format blog.content %>      
+    	</p>
+    	<% if current_user.id == 1 %>
+    		<%= link_to 'Show', blog %>
+    		<%= link_to 'Edit', edit_blog_path(blog) %>
+    		<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+	</article>
 <% end %>
 <br />
 <% if current_user.id == 1 %>
