@@ -7,7 +7,9 @@ Sets::Application.routes.draw do
   resources :battles
 
 
-  resources :rounds
+  resources :rounds do
+    collection { post :sort }
+  end
 
 
   get "profiles/show"

@@ -5,7 +5,7 @@ class Move < ActiveRecord::Base
   belongs_to :user
   belongs_to :type
 
-  has_many :round_moves
+  has_many :round_moves, :order => 'position'
   has_many :rounds, through: :round_moves
 
   scope :unused, joins(:type).where( bmode: false)
@@ -14,5 +14,7 @@ class Move < ActiveRecord::Base
   scope :power, where( type_id: [1,2])
   scope :freezes, where( type_id: [4,5])
   scope :notused, where( round_id: nil)
+
+  acts_as_list scope: :round
 end
 

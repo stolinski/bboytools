@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130702021245) do
+ActiveRecord::Schema.define(:version => 20130715204959) do
 
   create_table "battles", :force => true do |t|
     t.string    "name"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130702021245) do
     t.integer   "move_id"
     t.timestamp "created_at", :null => false
     t.timestamp "updated_at", :null => false
+    t.integer   "position"
   end
 
   add_index "round_moves", ["move_id"], :name => "index_round_moves_on_move_id"

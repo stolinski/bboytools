@@ -36,6 +36,5 @@ $(document).ready(function() {
    			$("html").addClass("js-nav");
    		}
    	});
-
 });
 

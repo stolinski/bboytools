@@ -35,6 +35,8 @@ group :development, :test do
 end
 
 
+gem 'acts_as_list'
+
 group :production do
   gem 'pg', '0.12.2'
 end

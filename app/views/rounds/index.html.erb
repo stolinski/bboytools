@@ -1,58 +1,63 @@
 <h1>Your Sets</h1>
 <div class="row">
-<div class="span6">
+  <div class="span6">
 
 
 
-<% @rounds.each do |round| %>
-  <div class="round round-<%= round.id %> ">
-    <!-- Rounds Name -->
-    <span class="add-moves"><input class="hidden" value="<%= round.id %>">Add Moves</span>
-    <h3>
-      <i class="icon-chevron-right"></i>
-      <%= round.name %>
-      <%= link_to(round, class: 'delete', method: :delete, data: { confirm: 'Are you sure?' }) do %><i class="icon-trash"></i><% end %>
-    </h3>
-    <ul class="round-moves">
-    <% round.round_moves.each do |roundm| %>
-        <li class="move <%= roundm.move.type.name.downcase.tr(" ", "-") %>">
+    <% @rounds.each do |round| %>
+    <div class="round round-<%= round.id %> ">
+      <!-- Rounds Name -->
+      <span class="add-moves"><input class="hidden" value="<%= round.id %>">Add Moves</span>
+      <h3>
+        <i class="icon-chevron-right"></i>
+        <%= round.name %>
+        <%= link_to(round, class: 'delete', method: :delete, data: { confirm: 'Are you sure?' }) do %><i class="icon-trash"></i><% end %>
+      </h3>
+      <ul class="round-moves" data-update-url="<%= sort_rounds_url %>">
+        <% round.round_moves.each do |roundm| %>
+<!--         <li class="move <%= roundm.move.type.name.downcase.tr(" ", "-") %>">
+          <span class="handle">[drag]<%= roundm.position %></span>
           <%= roundm.move.name %><%= link_to(roundm, class: 'delete', remote: true, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
-        </li>
+        </li> -->
+          <%= content_tag_for :li, roundm do %>
+            <span class="handle">[drag]<%= roundm.position %></span>
+            <%= roundm.move.name %><%= link_to(roundm, class: 'delete', remote: true, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
     <% end %>
+
+
+    <%= link_to 'New Set', new_round_path, id: 'new_round_btn', class: "button", remote: true %>
+  </div>
+
+
+
+
+
+  <div class="span6">
+    <h3>Unused Moves</h3>
+    <ul class="moves">
+      <% @moves.each do |move| %>
+      <li class="move <%= move.type.name.downcase.tr(" ", "-") %>">
+        <div class="icons">
+          <%= link_to(edit_move_path(move)) do %><i class="icon-pencil"></i><% end %>
+          <%= link_to(move, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
+        </div>
+        <%= simple_form_for @roundm, remote: true do |f| %>
+
+        <div class="form-inputs">
+          <%= f.input :move_id, as: :hidden, input_html: { value: move.id } %>
+          <%= f.input :round_id, as: :hidden, input_html: { value: 1, class: 'round_id' } %>
+          <%= f.button :submit, "+" %>
+        </div>
+
+        <% end %>
+        <span><%= move.type.name %></span>
+        <%= move.name %>
+      </li>
+      <% end %>
     </ul>
   </div>
-<% end %>
-
-
-<%= link_to 'New Set', new_round_path, id: 'new_round_btn', class: "button", remote: true %>
-</div>
-
-
-
-
-
-<div class="span6">
-  <h3>Unused Moves</h3>
-    <ul class="moves">
-    <% @moves.each do |move| %>
-    <li class="move <%= move.type.name.downcase.tr(" ", "-") %>">
-      <div class="icons">
-        <%= link_to(edit_move_path(move)) do %><i class="icon-pencil"></i><% end %>
-        <%= link_to(move, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
-      </div>
-      <%= simple_form_for @roundm, remote: true do |f| %>
-
-  <div class="form-inputs">
-    <%= f.input :move_id, as: :hidden, input_html: { value: move.id } %>
-    <%= f.input :round_id, as: :hidden, input_html: { value: 1, class: 'round_id' } %>
-    <%= f.button :submit, "+" %>
-  </div>
-
-<% end %>
-      <span><%= move.type.name %></span>
-      <%= move.name %>
-    </li>
-    <% end %>
-  </ul>
-</div>
 </div>

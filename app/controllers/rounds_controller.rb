@@ -5,7 +5,9 @@ class RoundsController < ApplicationController
     @rounds = Round
                 .all
     @roundm = RoundMove.new
-    @roundsms = RoundMove.all
+    @roundsms = RoundMove
+                .order('position')
+                .all
     @moves = current_user.moves
                 .joins(:type)
                 .order('types.row_order')
@@ -91,4 +93,14 @@ class RoundsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def sort
+    params[:round_move].each_with_index do |id, index|
+      RoundMove.update_all({position: index+1}, {id: id})
+    end
+    render nothing: true
+  end
+
+
+
 end

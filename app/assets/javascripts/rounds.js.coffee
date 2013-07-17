@@ -21,3 +21,10 @@ $ ->
 
 	$('.new_round_move .btn').on 'click', ->
 			$(this).parents('.move').fadeOut()
+
+	$('.round-moves').sortable(
+    	axis: 'y'
+    	handle: '.handle'
+    	update: ->
+    		$.post($(this).data('update-url'), $(this).sortable('serialize'))
+	);
