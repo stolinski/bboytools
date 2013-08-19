@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-	before_filter :authenticate_user!, except: [:time, :users]
+	before_filter :authenticate_user!, except: [:time]
   def show
   	@user = User.find_by_bboy_name(params[:id])
 
