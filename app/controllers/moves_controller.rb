@@ -7,6 +7,7 @@ class MovesController < ApplicationController
   							.joins(:type)
   							.order('types.row_order')
   							.all
+    @types = Type.order('row_order').all
   	respond_to do |format|
       format.html # index.html.erb
     end

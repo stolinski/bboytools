@@ -7,3 +7,33 @@
 $ ->
 	$('.move').click ->
 		$(this).children('.move-deets').slideToggle()
+
+
+	$('.moves').sortable(
+    	axis: 'y'
+    	handle: '.move-name'
+    	update: ->
+    		console.log "yo"
+	)
+
+	$container = $('.moves-container')
+	$checkboxes = $('#filters input')
+
+	$container.isotope(
+		itemSelector: '.move-type-wrap'
+	)
+
+	$('#filters a').click ->
+  		selector = $(this).attr('data-filter')
+  		$container.isotope({ filter: selector })
+  		return false
+
+	$checkboxes.change ->
+		filters = [];
+		$checkboxes.filter(':checked').each ->
+		  filters.push( this.value )
+		filters = filters.join(', ')
+		$container.isotope({ filter: filters })
+
+	$('#filters input[type=checkbox]').change ->
+	    $(this).next('label').toggleClass('selected')

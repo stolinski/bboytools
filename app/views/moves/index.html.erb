@@ -1,20 +1,34 @@
 <h1 class="page-title">Your Move Book</h1>
-<div class="span6">
-	<%= link_to 'Add Move', new_move_path, class: "button" %>
+<%= link_to 'Add Move', new_move_path, class: "button add-move" %>
+<ul class="move-filters" id="filters">
+	<% @types.each do |type| %>
+		<li class="checkbox-item">
+			<input class="hidden" type="checkbox" name="<%= type.name.downcase.tr(" ", "-") %>" value=".<%= type.name.downcase.tr(" ", "-") %>" id="<%= type.name.downcase.tr(" ", "-") %>"><label class="<%= type.name.downcase.tr(" ", "-") %>" for="<%= type.name.downcase.tr(" ", "-") %>"><%= type.name %></label>
+		</li>
+	<% end %>
+</ul>
+<div class="row moves-container">
 	<% current_type = nil %>
 	<% @moves.each do |move| %>
-		<% if move.type.name != current_type %>
+		<% if current_type == nil %>
 		<% current_type = move.type.name %>
-			</ul>
+			<div class="move-type-wrap span6 <%= move.type.name.downcase.tr(" ", "-") %>">
 			<h4><%= move.type.name %></h4>
 			<ul class="moves">
+		<% elsif move.type.name != current_type %>
+			<% current_type = move.type.name %>
+			</ul>
+			</div>
+			<div class="move-type-wrap span6 <%= move.type.name.downcase.tr(" ", "-") %>">
+			<h4><%= move.type.name %></h4>
+			<ul class="moves <%= move.type.name.downcase.tr(" ", "-") %>">
 		<% end %>
 			<li class="move <%= move.type.name.downcase.tr(" ", "-") %>">
 				<div class="icons">
 					<%= link_to(edit_move_path(move)) do %><i class="icon-pencil"></i><% end %>
 					<%= link_to(move, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
 				</div>
-				<span><%= move.type.name %></span>
+				<span class="move-name"><%= move.type.name %></span>
 				<%= move.name %>
 				<div class="move-deets">
 					<p><%= move.description %></p>
@@ -25,4 +39,5 @@
 			</li>
 	<% end %>
 	</ul>
+	</div>
 </div>
