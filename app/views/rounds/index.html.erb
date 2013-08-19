@@ -1,4 +1,5 @@
 <h1>Your Sets</h1>
+<%= link_to 'New Set', new_round_path, id: 'new_round_btn', class: "button", remote: true %>
 <div class="row">
   <div class="span6">
 
@@ -7,7 +8,7 @@
     <% @rounds.each do |round| %>
     <div class="round round-<%= round.id %> ">
       <!-- Rounds Name -->
-      <span class="add-moves"><input class="hidden" value="<%= round.id %>">Add Moves</span>
+      <span class="add-moves button"><input class="hidden" value="<%= round.id %>">Add Moves</span>
       <h3>
         <i class="icon-chevron-right"></i>
         <%= round.name %>
@@ -15,21 +16,15 @@
       </h3>
       <ul class="round-moves" data-update-url="<%= sort_rounds_url %>">
         <% round.round_moves.each do |roundm| %>
-<!--         <li class="move <%= roundm.move.type.name.downcase.tr(" ", "-") %>">
-          <span class="handle">[drag]<%= roundm.position %></span>
+         <li class="round_move move <%= roundm.move.type.name.downcase.tr(" ", "-") %>" id="round_move_<%= roundm.id %>">
+          <i class="icon-reorder"></i>
           <%= roundm.move.name %><%= link_to(roundm, class: 'delete', remote: true, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
-        </li> -->
-          <%= content_tag_for :li, roundm do %>
-            <span class="handle">[drag]<%= roundm.position %></span>
-            <%= roundm.move.name %><%= link_to(roundm, class: 'delete', remote: true, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
-          <% end %>
+        </li>
         <% end %>
       </ul>
     </div>
     <% end %>
 
-
-    <%= link_to 'New Set', new_round_path, id: 'new_round_btn', class: "button", remote: true %>
   </div>
 
 
@@ -37,7 +32,7 @@
 
 
   <div class="span6">
-    <h3>Unused Moves</h3>
+    <h3>My Moves</h3>
     <ul class="moves">
       <% @moves.each do |move| %>
       <li class="move <%= move.type.name.downcase.tr(" ", "-") %>">

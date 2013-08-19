@@ -2,7 +2,8 @@ class RoundsController < ApplicationController
   # GET /rounds
   # GET /rounds.json
   def index
-    @rounds = Round
+    @rounds = current_user
+                .rounds
                 .all
     @roundm = RoundMove.new
     @roundsms = RoundMove
@@ -33,7 +34,6 @@ class RoundsController < ApplicationController
   # GET /rounds/new.json
   def new
     @round = Round.new
-
     respond_to do |format|
       format.js
       format.json { render json: @round }
@@ -54,7 +54,7 @@ class RoundsController < ApplicationController
   # POST /rounds.json
   def create
     @round = Round.new(params[:round])
-
+    @round.user_id = current_user.id if current_user
     respond_to do |format|
       if @round.save
         format.html { redirect_to @round, notice: 'Round was successfully created.' }

@@ -24,7 +24,7 @@ $ ->
 
 	$('.round-moves').sortable(
     	axis: 'y'
-    	handle: '.handle'
+    	handle: '.icon-reorder'
     	update: ->
     		$.post($(this).data('update-url'), $(this).sortable('serialize'))
 	);

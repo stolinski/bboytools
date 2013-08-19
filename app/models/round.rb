@@ -1,5 +1,5 @@
 class Round < ActiveRecord::Base
-  attr_accessible :name, :move_id, :position
+  attr_accessible :name, :move_id, :position, :user_id
 
   belongs_to :user
   has_many :round_moves, :order => "move_id ASC"

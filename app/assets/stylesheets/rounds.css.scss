@@ -8,7 +8,7 @@
 }
 .round {
 	margin-bottom: 30px;
-	padding:10px 20px 10px 10px;
+	padding:10px 20px 5px 10px;
 	border-bottom: solid 4px #2c3E50;
 	position: relative;
 	@include transition;
@@ -20,10 +20,11 @@
 	}
 	.add-moves {
 		position: absolute;
-		top:0;
+		top:5px;
 		right:40px;
 		font-size:12px;
 		margin:0 10px;
+		cursor:pointer;
 	}
 	h3 {
 		padding:0 0 0 30px;
@@ -44,6 +45,9 @@
 			@include transition;
 			color:$red;
 			text-shadow:none;
+			&:hover {
+				text-decoration: none;
+			}
 		}
 		&:hover {
 			.delete {
