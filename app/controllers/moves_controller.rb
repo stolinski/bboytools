@@ -43,7 +43,6 @@ class MovesController < ApplicationController
   # POST /moves
   # POST /moves.json
 
-
   def create
   	@move = current_user.moves.new(params[:move])
   	respond_to do |format|
