@@ -29,6 +29,7 @@ Sets::Application.routes.draw do
   get '/time', to: 'profiles#time', as: :time
   get '/battle-mode', to: 'profiles#bmode', as: :bmode
   get '/move-call-out', to: 'profiles#callout', as: :callout
+  get '/round-gen/:rounds', to: 'profiles#roundgen', as: :roundgen
   get '/users', to: 'profiles#users', as: :users
   get '/:id', to: 'profiles#show', as: :userpage
 

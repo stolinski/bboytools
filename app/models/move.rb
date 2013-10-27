@@ -12,8 +12,11 @@ class Move < ActiveRecord::Base
   scope :toprock, where( type_id: 6)
   scope :footwork, where( type_id: 3)
   scope :power, where( type_id: [1,2])
+  scope :godown, where( type_id: 8)
   scope :freezes, where( type_id: [4,5])
   scope :notused, where( round_id: nil)
+
+  scope :withlevel, where( "level <> ''" )
 
   # acts_as_list scope: :round
 end

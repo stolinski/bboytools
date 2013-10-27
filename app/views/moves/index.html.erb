@@ -28,7 +28,7 @@
 					<%= link_to(edit_move_path(move)) do %><i class="icon-pencil"></i><% end %>
 					<%= link_to(move, method: :delete) do %><i class="icon-remove-circle"></i><% end %>
 				</div>
-				<span class="move-name"><%= move.type.name %> <% if move.level != nil %>: <%= move.level %><% end %></span>
+				<span class="move-name"><%= move.type.name %> <% if move.level != nil %>- Level: <%= move.level %><% end %></span>
 				<%= move.name %>
 				<div class="move-deets">
 					<p><%= move.description %></p>
