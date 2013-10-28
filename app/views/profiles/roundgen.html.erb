@@ -1,0 +1,10 @@
+<% @rounds.each do |round| %>
+	<%= "Total Set Level=#{round[0]}" %>
+	<ul>
+	<% round.each do |move| %>
+		<% unless move.is_a? Integer %>
+			<li><%= move.type.name %> - <%= move.name %> : <%= move.level %></li>
+		<% end %>
+	<% end %>
+	</ul>
+<% end %>
