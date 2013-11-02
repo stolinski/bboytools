@@ -85,8 +85,8 @@ Sets::Application.routes.draw do
   authenticated :user do
     root :to => "moves#index"
   end
-
-  root :to => 'profiles#home'
+  root :to => "moves#index"
+  # root :to => 'profiles#home'
 
   # See how all your routes lay out with "rake routes"
 
