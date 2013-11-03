@@ -23,7 +23,12 @@
 
 </script>
 </head>
+<% if @home %>
+	<body class="home-page">
+<% else %>
 <body>
+<% end %>
+
 	<div id="outer-wrap">
 		<div id="inner-wrap">
 			<%= render '/layouts/nav' %>
@@ -35,9 +40,15 @@
 					<%= message %>
 				</div>
 				<% end %>
-				<%= yield %>
+				<% unless @home %>
+					<%= yield %>
+				<% end %>
 				</div>
 			</div>
+			<% if @home %>
+				<%= yield %>
+			<% end %>
+
 			<footer class="clearfix">
 				<div class="container">
 					<div class="row">

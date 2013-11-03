@@ -6,7 +6,9 @@
 			<nav id="nav" role="navigation">
         			<div class="block">
 			<ul class="nav">
+			<% if user_signed_in? %>
 				<li><%= link_to "My Moves", moves_path %></li>
+				<% end %>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret"></b></a>
 					<ul class="dropdown-menu">

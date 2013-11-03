@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
   end
 
   def home
+    @home = true
     render action: :home
   end
 
