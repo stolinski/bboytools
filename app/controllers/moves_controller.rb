@@ -10,6 +10,7 @@ class MovesController < ApplicationController
     @types = Type.order('row_order').all
   	respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @moves }
     end
   end
 
